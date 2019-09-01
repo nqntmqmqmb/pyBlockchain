@@ -6,7 +6,7 @@
 
 `issoucoin.py` is the blockchain<br>
 `issoucoin_miner.py` is the IssouCoin miner<br>
-`transaction.py`, `verify.py`, `block`, `NV_block` needs to be uploaded on a webserver<br>
+`transaction.py`, `verify.py`, `block`, `NV_block`, `mine` needs to be uploaded on a webserver<br>
 
 Feel free to pull the repository
 

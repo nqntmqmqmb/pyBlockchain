@@ -10,4 +10,5 @@
 
 Feel free to pull the repository
 
+<img src="https://i.imgur.com/h9M0NhJ.gif">
 <p align="center">Wallet comming soon</p>

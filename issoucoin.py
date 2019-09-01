@@ -86,4 +86,7 @@ while True:
                             for line in lines:
                                 if line.strip("\n") != my_block:
                                     f.write(line)
-                        os.remove('blocks.txt')
+                        try:
+                            os.remove('blocks.txt')
+                        except FileNotFoundError:
+                            pass

@@ -41,7 +41,7 @@ last_data = ""
 while True:
     r = requests.get('http://localhost:80/blockchain/block').text
     i = 0
-    if r != last_data:
+    if (r != last_data) or r == "":
         last_data = r
         all_blocks = r.split('|||')
         while i < len(all_blocks): #essayer avec un for

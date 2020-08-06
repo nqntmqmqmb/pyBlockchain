@@ -21,21 +21,16 @@ class IssouBlock:
 def next_block(previous_block, data):
     header = previous_block.header + 1
     timestamp = time.time()
-    data = data
     previous_hash = previous_block.hash
     block = '{"header":' + str(header) + ',"timestamp":' + str(timestamp) + ',"data":' + data + ',"previous_hash":"' + previous_hash + '"}|||'
-    file = open('block', 'a')
-    file.write(block)
-    file.close()
+    with open('block', 'a') as file:
+        file.write(block)
     return IssouBlock(header, timestamp, data, previous_hash)
 
 blockchain = [IssouBlock(0, time.time(), "I am the first block!", "0")]
 last_block = blockchain[0]
 
-last_data = ""
-
 while True:
-    
     r = requests.get('http://localhost:80/blockchain/block').text
     i = 0
     all_blocks = r.split('|||')
@@ -57,11 +52,9 @@ while True:
             print("Previous hash : " + getattr(new_block, 'previous_hash') + "\n")
         else:
             data = requests.get("http://localhost:80/blockchain/NV_block").text
-
             if "{" in data :
-                file = open('blocks.txt', 'a+')
-                file.write(data)
-                file.close()
+                with open('blocks.txt', 'a+') as file:
+                    file.write(data)
 
                 with open('blocks.txt') as f:
                     blocks = f.readlines()

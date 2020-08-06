@@ -1,8 +1,8 @@
 import requests
 import random
 import string
+
 def randomString(stringLength=10):
-    """Generate a random string of fixed length """
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for i in range(stringLength))
 
@@ -24,6 +24,6 @@ while i < 20:
     amount+=add
     requests.post('http://localhost/blockchain/transaction.php', data={'from':users[sender], 'to':users[receiver], 'amount':add}).text
     
-    print(users[sender] + " SEND " + str(add) + " A " + users[receiver])
+    print(users[sender] + " SEND " + str(add) + " TO " + users[receiver])
     i+=1
     
